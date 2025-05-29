@@ -8,8 +8,8 @@ $DesiredVersion = "3"
 $registryPath = "HKLM:\SYSTEM\CurrentControlSet\Services\RasMan\Config"
 $property = $VersionKey
 
-$UserTunnelConnectionName = "St Peters VPN"
-$DeviceTunnelConnectionName = "St Peters VPN Device Tunnel"
+$UserTunnelConnectionName = "User VPN"
+$DeviceTunnelConnectionName = "Device Tunnel VPN"
 
 
 ##############################################

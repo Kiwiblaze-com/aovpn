@@ -1,0 +1,39 @@
+<VPNProfile>
+   <AlwaysOn>true</AlwaysOn>
+   <DeviceTunnel>true</DeviceTunnel>
+   <DnsSuffix>myinternaldns.com</DnsSuffix>
+   <TrustedNetworkDetection>myinternaldns.com,sub.myinternaldns.com</TrustedNetworkDetection>
+   <DisableAdvancedOptionsEditButton>true</DisableAdvancedOptionsEditButton>
+   <DisableDisconnectButton>false</DisableDisconnectButton>
+   <NativeProfile>
+      <!-- For Azure VPN, needs to be entered twice -->
+      <Servers>azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-xxxxxxxxxxxx.vpn.azure.com;azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-xxxxxxxxxxxx.vpn.azure.com</Servers>
+      <RoutingPolicyType>SplitTunnel</RoutingPolicyType>
+      <NativeProtocolType>IKEv2</NativeProtocolType>
+      <Authentication>
+         <MachineMethod>Certificate</MachineMethod>
+      </Authentication>
+      <CryptographySuite>
+         <AuthenticationTransformConstants>SHA256128</AuthenticationTransformConstants>
+         <CipherTransformConstants>AES256</CipherTransformConstants>
+         <PfsGroup>PFS2048</PfsGroup>
+         <DHGroup>Group14</DHGroup>
+         <IntegrityCheckMethod>SHA256</IntegrityCheckMethod>
+         <EncryptionMethod>AES_GCM_256</EncryptionMethod>
+      </CryptographySuite>
+      <DisableClassBasedDefaultRoute>true</DisableClassBasedDefaultRoute>
+   </NativeProfile>
+   <!--DC-->
+   <Route>
+      <Address>10.8.1.10</Address>
+      <PrefixSize>32</PrefixSize>
+      <Metric>1</Metric>
+   </Route>
+   <!--CA-->
+   <Route>
+      <Address>10.8.1.11</Address>
+      <PrefixSize>32</PrefixSize>
+      <Metric>1</Metric>
+   </Route>
+   <RegisterDNS>false</RegisterDNS>
+</VPNProfile>

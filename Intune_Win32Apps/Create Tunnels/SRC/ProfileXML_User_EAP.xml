@@ -1,8 +1,8 @@
 <VPNProfile>
    <AlwaysOn>true</AlwaysOn>
    <DeviceTunnel>false</DeviceTunnel>
-   <DnsSuffix>stpeters.school.nz</DnsSuffix>
-   <TrustedNetworkDetection>stpeters.school.nz,byod-dmz.stpeters.school.nz</TrustedNetworkDetection>
+   <DnsSuffix>myinternaldns.com</DnsSuffix>
+   <TrustedNetworkDetection>myinternaldns.com,sub.myinternaldns.com</TrustedNetworkDetection>
    <!-- Enable device compliance for Entra Conditional Access -->
     <DeviceCompliance>
         <Enabled>true</Enabled>
@@ -14,7 +14,8 @@
    <DisableAdvancedOptionsEditButton>true</DisableAdvancedOptionsEditButton>
    <DisableDisconnectButton>false</DisableDisconnectButton>
    <NativeProfile>
-      <Servers>azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-91137c18a7a7.vpn.azure.com;azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-91137c18a7a7.vpn.azure.com</Servers>
+      <!-- For Azure VPN, needs to be entered twice -->
+      <Servers>azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-xxxxxxxxxxxx.vpn.azure.com;azuregateway-54100057-da95-41fb-8b7d-8bb7a026fab1-xxxxxxxxxxxx.vpn.azure.com</Servers>
       <NativeProtocolType>IKEv2</NativeProtocolType>
       <Authentication>
          <UserMethod>EAP</UserMethod>
@@ -86,72 +87,10 @@
       <PrefixSize>14</PrefixSize>
       <Metric>1</Metric>
    </Route>
-   <!--Azure VPNs and CA Server, Need to add her to work with Device Tunnel need the specific route so the metric breaks the tie-->
+   <!--OnPrem Range-->
    <Route>
-      <Address>10.8.1.10</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <Route>
-      <Address>10.8.1.11</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-    <Route>
-      <Address>10.8.32.14</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--OnPrem General Servers Range-->
-   <Route>
-      <Address>10.102.1.0</Address>
-      <PrefixSize>24</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--OnPrem Staff Servers Range-->
-   <Route>
-      <Address>10.102.2.0</Address>
-      <PrefixSize>24</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--On Prem DCs Alternative IPs-->
-   <Route>
-      <Address>172.16.0.8</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <Route>
-      <Address>172.16.0.1</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--Staff Workstation Reserved Range-->
-   <Route>
-      <Address>10.110.254.0</Address>
-      <PrefixSize>23</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--Certs - ces1,ces2 Added to Override Device Tunnel route-->
-   <Route>
-      <Address>10.8.32.51</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <Route>
-      <Address>10.8.32.52</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--Spwebapps1-->
-   <Route>
-      <Address>172.16.0.25</Address>
-      <PrefixSize>32</PrefixSize>
-      <Metric>1</Metric>
-   </Route>
-   <!--PABX-->
-   <Route>
-      <Address>10.38.2.32</Address>
-      <PrefixSize>27</PrefixSize>
+      <Address>10.0.0.0</Address>
+      <PrefixSize>16</PrefixSize>
       <Metric>1</Metric>
    </Route>
    <RegisterDNS>true</RegisterDNS>
